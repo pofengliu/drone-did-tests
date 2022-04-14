@@ -1,0 +1,20 @@
+kind: pipeline
+name: default
+ 
+steps:
+- name: build
+  image: quay.io/testcontainers/dind-drone-plugin
+  environment:
+    # For our DC, DNS is needed.
+    EXTRA_DOCKER_OPTIONS: "--dns=8.8.8.8 --network host -e DOCKER_HOST=tcp://172.17.0.1:2375 -e TESTCONTAINERS_RYUK_DISABLED=true"
+  settings:
+    cmd:
+      - node -v
+      - npm i; npm run test:container
+    build_image: node:16-alpine
+    prefetch_images:
+      - "mongo:4.2"
+      - "redis:6.2.5"
+    image_aliases:
+      local.docker.registry/devops/redis:6.2.5: redis:6.2.5
+      local.docker.registry/devops/mongo:4.2: mongo:4.2

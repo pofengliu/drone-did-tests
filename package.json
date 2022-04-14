@@ -1,0 +1,18 @@
+{
+  "name": "drone-did-test",
+  "version": "0.0.0",
+  "scripts": {
+    "test:container": "cd tests && npx nyc --reporter=text mocha --timeout 15000 ./testcontainer-*.spec.js"
+  },
+  "dependencies": {
+    "mongoose": "^5.4.14"
+  },
+  "devDependencies": {
+    "async-redis": "^2.0.0",
+    "chai": "^4.2.0",
+    "mocha": "^9.2.2",
+    "nyc": "^15.1.0",
+    "sinon": "^7.3.0",
+    "testcontainers": "^7.21.0"
+  }
+}

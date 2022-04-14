@@ -1,0 +1,29 @@
+.DS_Store
+.idea/
+node_modules/
+.nyc_output/
+*lock.json
+
+# Optional npm cache directory
+.npm
+
+# Optional REPL history
+.node_repl_history
+
+# Logs
+logs
+*.log
+npm-debug.log*
+
+# Pact
+pacts/
+
+# Cypress
+**/screenshots/
+
+# Coverage directory used by tools like istanbul
+coverage
+
+# yardoc for BDD
+.yardoc/
+doc/
